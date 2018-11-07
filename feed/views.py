@@ -4,13 +4,17 @@ from . models import Article, Comment, HashTag
 def index(request):
     """index page를 load한다"""
     category = request.GET.get("category")
-
-    if not category:
-        articles = Article.objects.all()
-    else:
-        articles = Article.objects.filter(category=category)
+    hashtag = request.GET.get("hashtag")
 
     hashtags = HashTag.objects.all()
+
+    if not category and not hashtag:
+        articles = Article.objects.all()
+    elif category:
+        articles = Article.objects.filter(category=category)
+    else:
+        articles = Article.objects.filter(hashtag__name=hashtag)
+
 
     # categories = set([])
     # for article in articles:

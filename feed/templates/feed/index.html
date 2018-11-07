@@ -32,7 +32,7 @@
         <h4>HashTags</h4>
         <ol class="list_unstyled">
           {% for hashtag in hashtags %}
-          <li>#{{ hashtag }}</li>
+          <li><a href="/?hashtag={{ hashtag.name }}">#{{ hashtag }}</a></li>
           {% endfor %}
         </ol>
       </div>
