@@ -1,0 +1,26 @@
+{% extends "feed/base.html" %}
+{% block body %}
+<div class="container">
+  <div class="blog-header">
+    <h1 class="blog-title">{{ article.title }}</h1>
+    <p class="lead blog-description">The first blog</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="blog-post">
+        <p>{{ article.content }}</p>
+      </div>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+      <div class="sidebar-module">
+        {% for hashtag in hashtags %}
+        <ol class="list_unstyled">
+          <li>#{{ hashtag }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div class="sidbar-module"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

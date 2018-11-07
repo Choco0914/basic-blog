@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+   content="ie=edge; IE=11; IE=10; IE=8; IE=7;">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>{% block title %}Blog{% endblock %}</title>
+  <link rel="stylesheet" href="{% static "feed/base.css" %}">
+  <link rel="stylesheet" href="{% static "feed/css/bootstrap.css" %}">
+  <link rel="stylesheet" href="{% static "feed/css/all.css" %}">
+</head>
+<body>
+  {% block header %}
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="blog-nav">
+      <a href="" class="blog-nav-item active">Home</a>
+      <a href="" class="blog-nav-item">About</a>
+      </nav>
+    </div>
+  </div>
+  {% endblock %}
+  {% block body %}{% endblock %}
+  <script src="{% static "feed/js/bootstrap.min.js" %}"></script>
+</body>
+</html>

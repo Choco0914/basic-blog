@@ -1,0 +1,42 @@
+{% extends "feed/base.html" %}
+{% block body %}
+<div class="container">
+  <div class="blog-header">
+    <h1 class="blog-title">Choco's Blog</h1>
+    <p class="lead blog-description">The first blog</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="blog-post">
+    {% for article in articles %}
+        <h2 class="blog-post-title">
+          <a href="/{{ article.id }}/">
+          {{ article.title }}
+          </a>
+        </h2>
+        <p>{{ article.content }}</p>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+      <div class="sidebar-module">
+        <h4>Categories</h4>
+        <ol class="list_unstyled">
+          <li><a href="/">all</a></li>
+          {% for alias, category in categories %}
+          <li><a href="/?category={{ alias }}">{{ category }}</a></li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div class="sidbar-module">
+        <h4>HashTags</h4>
+        <ol class="list_unstyled">
+          {% for hashtag in hashtags %}
+          <li>#{{ hashtag }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
